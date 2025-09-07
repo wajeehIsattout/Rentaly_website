@@ -117,7 +117,7 @@ $(document).ready(function() {
             queryParams.append('engine_capacity', filters.engineCapacity.join(','));
         }
 
-        const url = queryParams.toString() ? `http://localhost:8000/cars?${queryParams.toString()}` : `http://localhost:8000/cars`;
+        const url = queryParams.toString() ? `${API_BASE_URL}/cars?${queryParams.toString()}` : `${API_BASE_URL}/cars`;
         
         fetch(url)
             .then(response => {
@@ -156,7 +156,7 @@ $(document).ready(function() {
                             <div class="d-text">
                                 <h4>${car.make} ${car.model}</h4>
                                 <div class="d-item_like" data-car-id="${car.id}">
-                                    <i class="fa fa-heart far"></i><span class="likes-count">${car.favorite_count || 0}</span>
+                                    <i class="fa fa-heart ${car.is_favorited ? 'fas' : 'far'}"></i><span class="likes-count">${car.likes_count}</span>
                                 </div>
                                 <div class="d-atr-group">
                                     <span class="d-atr"><img src="images/icons/1-green.svg" alt="">${car.seats || 5}</span>
@@ -175,18 +175,6 @@ $(document).ready(function() {
             `;
             carsContainer.append(carHtml);
         });
-        
-        // Check user's favorites and update heart icons
-        if (window.isAuthenticated()) {
-            API.getFavoriteCars().then(favoriteCars => {
-                const favoriteCarIds = favoriteCars.map(car => car.id);
-                favoriteCarIds.forEach(carId => {
-                    $(`.d-item_like[data-car-id='${carId}'] .fa-heart`).removeClass("far").addClass("fas");
-                });
-            }).catch(error => {
-                console.error("Error fetching favorite cars:", error);
-            });
-        }
     }
 
     function applyFilters() {
@@ -214,18 +202,32 @@ $(document).ready(function() {
 
         try {
             if ($heartIcon.hasClass("fas")) { // Already favorited, so remove
-                const response = await API.removeFavorite(carId);
+                await API.removeFavorite(carId);
                 $heartIcon.removeClass("fas").addClass("far");
-                $favoriteCount.text(response.favorite_count || 0);
+                $favoriteCount.text(parseInt($favoriteCount.text()) - 1);
             } else { // Not favorited, so add
-                const response = await API.addFavorite(carId);
+                await API.addFavorite(carId);
                 $heartIcon.removeClass("far").addClass("fas");
-                $favoriteCount.text(response.favorite_count || 0);
+                $favoriteCount.text(parseInt($favoriteCount.text()) + 1);
             }
         } catch (error) {
             console.error("Error updating favorite status:", error);
             alert("Failed to update favorite status. Please try again.");
         }
-});
+    });
+
+    // Initial check for favorited cars (after cars are displayed)
+    $(document).ajaxStop(function() {
+        if (window.isAuthenticated()) {
+            API.getFavoriteCars().then(favoriteCars => {
+                favoriteCars.forEach(favCar => {
+                    $(`.d-item_like .fa-heart[data-car-id='${favCar.id}']`).removeClass("far").addClass("fas");
+                    // Update count if necessary, though current backend doesn't provide per-car favorite count
+                });
+            }).catch(error => {
+                console.error("Error fetching favorite cars:", error);
+            });
+        }
+    });
 
 

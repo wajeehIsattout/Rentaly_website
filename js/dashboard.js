@@ -226,6 +226,14 @@ function cancelBooking(bookingId) {
         });
 }
 
+function loadFavorites() {
+    // For now, show a placeholder since favorites functionality isn't implemented in backend
+    const container = $('#favorites-container');
+    if (container.length) {
+        container.html('<div class="col-12"><p class="text-center">Favorites functionality coming soon!</p></div>');
+    }
+}
+
 function showMessage(message, type) {
     // Remove existing messages
     $('.dashboard-message').remove();
@@ -247,6 +255,20 @@ function showMessage(message, type) {
     }, 5000);
 }
 
+
+
+
+function loadFavorites() {
+    API.getFavorites()
+        .then(function(favorites) {
+            displayFavorites(favorites);
+        })
+        .catch(function(error) {
+            console.error('Failed to load favorites:', error);
+            showMessage('Failed to load favorites', 'error');
+        });
+}
+
 function displayFavorites(favorites) {
     const container = $('#favorites-container');
     if (!container.length) return;
@@ -257,8 +279,8 @@ function displayFavorites(favorites) {
     }
 
     let html = '';
-    favorites.forEach(function(car) {
-        html += generateCarCard(car);
+    favorites.forEach(function(favorite) {
+        html += generateCarCard(favorite.car);
     });
 
     container.html(html);
@@ -412,7 +434,7 @@ $(document).ready(function() {
 
 
 function loadFavorites() {
-    API.getFavoriteCars()
+    API.getFavorites()
         .then(function(favorites) {
             displayFavorites(favorites);
         })
@@ -426,48 +448,40 @@ function displayFavorites(favorites) {
     const container = $("#favorite-cars-container");
     container.empty();
 
-    let html = '';
-
     if (favorites.length === 0) {
         container.html("<p>No favorite cars yet.</p>");
         return;
     }
 
     favorites.forEach(function(car) {
-        html += generateCarCard(car);
-    });
-
-    container.html(html);
-}
-
-function generateCarCard(car) {
-    return `
-        <div class="col-xl-4 col-lg-6">
-            <div class="de-item mb30">
-                <div class="d-img">
-                    <img src="${car.image_url}" class="img-fluid" alt="${car.make} ${car.model}" onerror="this.src='images/cars-alt/default-car.png'">
-                </div>
-                <div class="d-info">
-                    <div class="d-text">
-                        <h4>${car.make} ${car.model}</h4>
-                        <div class="d-item_like" data-car-id="${car.id}">
-                            <i class="fa fa-heart far"></i><span class="likes-count">${car.favorite_count || 0}</span>
-                        </div>
-                        <div class="d-atr-group">
-                            <span class="d-atr"><img src="images/icons/1-green.svg" alt="">${car.seats || 5}</span>
-                            <span class="d-atr"><img src="images/icons/2-green.svg" alt="">2</span>
-                            <span class="d-atr"><img src="images/icons/3-green.svg" alt="">4</span>
-                            <span class="d-atr"><img src="images/icons/4-green.svg" alt="">${car.category || 'Car'}</span>
-                        </div>
-                        <div class="d-price">
-                            Daily rate from <span>$${car.daily_rate}</span>
-                            <a class="btn-main" href="booking.html?car_id=${car.id}">Rent Now</a>
+        container.append(`
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="de-item mb30">
+                    <div class="d-img">
+                        <img src="${car.image_url || 'images/cars/default-car.jpg'}" class="img-fluid" alt="${car.make} ${car.model}">
+                    </div>
+                    <div class="d-info">
+                        <div class="d-text">
+                            <h4>${car.make} ${car.model}</h4>
+                            <div class="d-item_like">
+                                <i class="fa fa-heart"></i><span>${car.likes || 0}</span>
+                            </div>
+                            <div class="d-atr-group">
+                                <span class="d-atr"><img src="images/icons/1-green.svg" alt="">${car.seats}</span>
+                                <span class="d-atr"><img src="images/icons/2-green.svg" alt="">${car.doors}</span>
+                                <span class="d-atr"><img src="images/icons/3-green.svg" alt="">${car.transmission}</span>
+                                <span class="d-atr"><img src="images/icons/4-green.svg" alt="">${car.car_type}</span>
+                            </div>
+                            <div class="d-price">
+                                Daily rate from <span>$${car.daily_rate}</span>
+                                <a class="btn-main" href="booking.html?car_id=${car.id}">Rent Now</a>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    `;
+        `);
+    });
 }
 
 

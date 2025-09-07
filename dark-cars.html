@@ -20,7 +20,7 @@
     <link id="colors" href="css/colors/scheme-01.css" rel="stylesheet" type="text/css">
 </head>
 
-<body>
+<body class="dark-scheme">
     <div id="wrapper">
         
         <!-- page preloader begin -->
@@ -28,7 +28,7 @@
         <!-- page preloader close -->
 
         <!-- header begin -->
-        <header class="transparent scroll-light has-topbar">
+        <header class="transparent has-topbar">
             <div id="topbar" class="topbar-dark text-light">
                 <div class="container">
                     <div class="topbar-left xs-hide">
@@ -42,7 +42,7 @@
                     <div class="topbar-right">
                         <div class="social-icons">
                             <a href="#"><i class="fa fa-facebook fa-lg"></i></a>
-                           <!-- <a href="#"><i class="fa fa-twitter fa-lg"></i></a>
+                            <!--<a href="#"><i class="fa fa-twitter fa-lg"></i></a>
                             <a href="#"><i class="fa fa-youtube fa-lg"></i></a>
                             <a href="#"><i class="fa fa-pinterest fa-lg"></i></a>-->
                             <a href="#"><i class="fa fa-instagram fa-lg"></i></a>
@@ -60,9 +60,8 @@
                                     <!-- logo begin -->
                                     <div id="logo">
                                         <a href="index.html">
-                                           <img class="logo-1" src="images/logo33.png" alt="">
+                                                      <img class="logo-1" src="images/logo33.png" alt="">
                                             <img class="logo-2" src="images/logo22.png" alt="">
-                                       
                                         </a>
                                     </div>
                                     <!-- logo close -->
@@ -70,24 +69,24 @@
                             </div>
                             <div class="de-flex-col header-col-mid">
                                 <div style="display: flex; justify-content: flex-end; gap: 10px; padding: 10px;">
-
                                    
                                   </div>
                                 <ul id="mainmenu">
-                                  <a class="menu-item" href="dark-index.html">Home</a>
-                                      <!--l>
-                                            
-                                            
-                                          - <li><a class="menu-item" href="index.html">Homepage Main</a></li>
+                                    
+                                        <a class="menu-item" href="dark-index.html">Home</a>
+                                     <!-- l>
+                                            <li><a class="menu-item new" href="02_dark-index-1.html">Homepage 1 Dark</a></li>
+                                            <li><a class="menu-item new" href="02_dark-index-2.html">Homepage 2 Dark</a></li>
+                                            <li><a class="menu-item" href="index.html">Homepage Main</a></li>
                                             <li><a class="menu-item" href="index-2.html">Homepage 2</a></li>
                                             <li><a class="menu-item" href="index-3.html">Homepage 3</a></li>
                                             <li><a class="menu-item" href="index-4.html">Homepage 4</a></li>
                                             <li><a class="menu-item" href="index-5.html">Homepage 5</a></li>
                                             <li><a class="menu-item" href="index-6.html">Homepage 6</a></li> 
-                                        </ul>
-                                    </!->-->
-                                     
-                                 <a class="menu-item" href="dark-cars.html">Cars</a>
+                                        </ul>-->
+                                   
+                                  
+                              
                                         <!-- 
                                             <li><a class="menu-item" href="cars.html">Cars</a></li>
                                          
@@ -112,8 +111,8 @@
                                         <li><a class="menu-item" href="account-booking.html">My Orders</a></li>
                                         <li><a class="menu-item" href="account-favorite.html">My Favorite Cars</a></li>
                                     </ul> -->
-                                  
-                                   <a class="menu-item" href="about.html">About Us</a>
+                                    <a class="menu-item" href="about.html">About Us</a>
+                                   <a class="menu-item" href="contact.html">Contact</a>
                                      <!--
                                    ul>
                                             <li><a class="menu-item" href="login.html">Login</a></li>
@@ -157,8 +156,6 @@
                                         </ul>
                                     </li> -->
                                 </ul>
-                                 
-                                
                             </div>
                             <div class="de-flex-col">
                                 <div class="menu_side_area">
@@ -173,17 +170,17 @@
         </header>
             <!-- header close -->
         <!-- content begin -->
-        <div class="no-bottom no-top" id="content">
+        <div class="no-bottom no-top zebra" id="content">
             <div id="top"></div>
             
             <!-- section begin -->
             <section id="subheader" class="jarallax text-light">
-                <img src="images/background/subheader.jpg" class="jarallax-img" alt="">
+                <img src="images/background/2.jpg" class="jarallax-img" alt="">
                     <div class="center-y relative text-center">
                         <div class="container">
                             <div class="row">
                                 <div class="col-md-12 text-center">
-									<h1>Contact Us</h1>
+                                    <h1>Cars</h1>
                                 </div>
                                 <div class="clearfix"></div>
                             </div>
@@ -191,81 +188,155 @@
                     </div>
             </section>
             <!-- section close -->
-            
 
-            <section aria-label="section">
+            <section id="section-cars">
                 <div class="container">
-						<div class="row g-custom-x">
-							
-							<div class="col-lg-8 mb-sm-30">
+                    <div class="row">
+                        <div class="col-lg-3">
+                            <div class="item_filter_group">
+                                <h4>Vehicle Type</h4>
+                                <div class="de_form">
+                                    <div class="de_checkbox">
+                                        <input id="vehicle_type_1" name="vehicle_type_1" type="checkbox" value="vehicle_type_1">
+                                        <label for="vehicle_type_1">Car</label>
+                                    </div>
 
-							 <h3>Do you have any question?</h3>
-							
-        						<form name="contactForm" id="contact_form" class="form-border" method="post">
-                                        <div class="row">
-                                            <div class="col-md-4 mb10">
-                                                <div class="field-set">
-                                                    <input type="text" name="name" id="name" class="form-control" placeholder="Your Name" required>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4 mb10">
-                                                <div class="field-set">
-                                                    <input type="text" name="email" id="email" class="form-control" placeholder="Your Email" required>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4 mb10">
-                                                <div class="field-set">
-                                                    <input type="text" name="phone" id="phone" class="form-control" placeholder="Your Phone" required>
-                                                </div>
-                                            </div>
-                                        </div>
-                                            
-                                        <div class="field-set mb20">
-                                            <textarea name="message" id="message" class="form-control" placeholder="Your Message" required></textarea>
-                                        </div>
+                                    <div class="de_checkbox">
+                                        <input id="vehicle_type_2" name="vehicle_type_2" type="checkbox" value="vehicle_type_2">
+                                        <label for="vehicle_type_2">Van</label>
+                                    </div>
 
-                                        <div id='submit' class="mt20">
-                                            <input type='submit' id='send_message' value='Send Message' class="btn-main">
-                                        </div>
+                                    <div class="de_checkbox">
+                                        <input id="vehicle_type_3" name="vehicle_type_3" type="checkbox" value="vehicle_type_3">
+                                        <label for="vehicle_type_3">Minibus</label>
+                                    </div>
 
-                                      <div id="success_message" class="success" style="display: none;">
-                                            Your message has been sent successfully. Refresh this page if you want to send more messages.
-                                        </div>
-                                        <div id="error_message" class="error" style="display: none;">
-                                            Sorry there was an error sending your form.
-                                        </div>                                   </form>
-						</div>
-						
-						<div class="col-lg-4">
+                                    <div class="de_checkbox">
+                                        <input id="vehicle_type_4" name="vehicle_type_4" type="checkbox" value="vehicle_type_4">
+                                        <label for="vehicle_type_4">Prestige</label>
+                                    </div>
 
-							<div class="de-box mb30">
-								<h4>Aleppo Office</h4>
-								<address class="s1">
-									<span><i class="id-color fa fa-map-marker fa-lg"></i>Al-furkan</span>
-									<span><i class="id-color fa fa-phone fa-lg"></i>+9639872749105</span>
-									<span><i class="id-color fa fa-envelope-o fa-lg"></i><a href=raghad0saeed@gmail.com">contact our manager</a></span>
-									<span><i class="id-color fa fa-file-pdf-o fa-lg"></i><a href="#">Download Brochure</a></span>
-								</address>
-							</div>
+                                </div>
+                            </div>
 
+                            <div class="item_filter_group">
+                                <h4>Car Body Type</h4>
+                                <div class="de_form">
+                                    <div class="de_checkbox">
+                                        <input id="car_body_type_1" name="car_body_type_1" type="checkbox" value="car_body_type_1">
+                                        <label for="car_body_type_1">Convertible</label>
+                                    </div>
 
-							<div class="de-box mb30">
-								<h4>Damascus Office</h4>
-								<address class="s1">
-									<span><i class="fa fa-map-marker fa-lg"></i>Abo-Rummaneh</span>
-									<span><i class="fa fa-phone fa-lg"></i>+963975841547</span>
-									<span><i class="fa fa-envelope-o fa-lg"></i><a href="sedra0ezizi">contact our manager</a></span>
-									<span><i class="fa fa-file-pdf-o fa-lg"></i><a href="#">Download Brochure</a></span>
-								</address>
-							</div>
+                                    <div class="de_checkbox">
+                                        <input id="car_body_type_2" name="car_body_type_2" type="checkbox" value="car_body_type_2">
+                                        <label for="car_body_type_2">Coupe</label>
+                                    </div>
 
-						</div>
-							
-						</div>
-					</div>
+                                    <div class="de_checkbox">
+                                        <input id="car_body_type_3" name="car_body_type_3" type="checkbox" value="car_body_type_3">
+                                        <label for="car_body_type_3">Exotic Cars</label>
+                                    </div>
 
+                                    <div class="de_checkbox">
+                                        <input id="car_body_type_4" name="car_body_type_4" type="checkbox" value="car_body_type_4">
+                                        <label for="car_body_type_4">Hatchback</label>
+                                    </div>
+
+                                    <div class="de_checkbox">
+                                        <input id="car_body_type_5" name="car_body_type_5" type="checkbox" value="car_body_type_5">
+                                        <label for="car_body_type_5">Minivan</label>
+                                    </div>
+
+                                    <div class="de_checkbox">
+                                        <input id="car_body_type_6" name="car_body_type_6" type="checkbox" value="car_body_type_6">
+                                        <label for="car_body_type_6">Pickup</label>
+                                    </div>
+
+                                    <div class="de_checkbox">
+                                        <input id="car_body_type_7" name="car_body_type_7" type="checkbox" value="car_body_type_7">
+                                        <label for="car_body_type_7">Sedan</label>
+                                    </div>
+
+                                    <div class="de_checkbox">
+                                        <input id="car_body_type_8" name="car_body_type_8" type="checkbox" value="car_body_type_8">
+                                        <label for="car_body_type_8">Sports Car</label>
+                                    </div>
+
+                                    <div class="de_checkbox">
+                                        <input id="car_body_type_9" name="car_body_type_9" type="checkbox" value="car_body_type_9">
+                                        <label for="car_body_type_9">Station Wagon</label>
+                                    </div>
+
+                                    <div class="de_checkbox">
+                                        <input id="car_body_type_10" name="car_body_type_10" type="checkbox" value="car_body_type_10">
+                                        <label for="car_body_type_10">SUV</label>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div class="item_filter_group">
+                                <h4>Car Seats</h4>
+                                <div class="de_form">
+                                    <div class="de_checkbox">
+                                        <input id="car_seat_1" name="car_seat_1" type="checkbox" value="car_seat_1">
+                                        <label for="car_seat_1">2 seats</label>
+                                    </div>
+
+                                    <div class="de_checkbox">
+                                        <input id="car_seat_2" name="car_seat_2" type="checkbox" value="car_seat_2">
+                                        <label for="car_seat_2">4 seats</label>
+                                    </div>
+
+                                    <div class="de_checkbox">
+                                        <input id="car_seat_3" name="car_seat_3" type="checkbox" value="car_seat_3">
+                                        <label for="car_seat_3">6 seats</label>
+                                    </div>
+
+                                    <div class="de_checkbox">
+                                        <input id="car_seat_4" name="car_seat_4" type="checkbox" value="car_seat_4">
+                                        <label for="car_seat_4">6+ seats</label>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div class="item_filter_group">
+                                <h4>Price ($)</h4>
+                                <div class="price-input">
+                                    <div class="field">
+                                      <span>Min</span>
+                                      <input type="number" class="input-min" value="0">
+                                    </div>
+                                    <div class="separator">-</div>
+                                    <div class="field">
+                                      <span>Max</span>
+                                      <input type="number" class="input-max" value="2000">
+                                    </div>
+                                  </div>
+                                  <div class="slider">
+                                    <div class="progress"></div>
+                                  </div>
+                                  <div class="range-input">
+                                    <input type="range" class="range-min" min="0" max="2000" value="0" step="10">
+                                    <input type="range" class="range-max" min="0" max="2000" value="2000" step="10">
+                                  </div>
+                            </div>
+
+                        </div>
+
+                        <div class="col-lg-9">
+                            <div class="row" id="cars-container">
+                                <!-- Car items will be inserted here by JavaScript -->
+                            </div>
+                            <div id="loading-message" class="text-center">
+                                <p>Loading cars...</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </section>
-
+            
         </div>
         <!-- content close -->
 
@@ -286,9 +357,9 @@
                         <div class="widget">
                             <h5>Contact Info</h5>
                             <address class="s1">
-                                <span><i class="id-color fa fa-map-marker fa-lg"></i>syria</span>
-                                <span><i class="id-color fa fa-phone fa-lg"></i>+9639535753</span>
-                                <span><i class="id-color fa fa-envelope-o fa-lg"></i><a href="mailto:contact@example.com">raghad0saeed.com</a></span>
+                                <span><i class="id-color fa fa-map-marker fa-lg"></i>08 W 36th St, New York, NY 10018</span>
+                                <span><i class="id-color fa fa-phone fa-lg"></i>+208 333 9296</span>
+                                <span><i class="id-color fa fa-envelope-o fa-lg"></i><a href="mailto:contact@example.com">contact@example.com</a></span>
                                 <span><i class="id-color fa fa-file-pdf-o fa-lg"></i><a href="#">Download Brochure</a></span>
                             </address>
                         </div>
@@ -316,9 +387,9 @@
                             <h5>Social Network</h5>
                             <div class="social-icons">
                                 <a href="#"><i class="fa fa-facebook fa-lg"></i></a>
-                                <a href="#"><i class="fa fa-twitter fa-lg"></i></a>
+                                <!--<a href="#"><i class="fa fa-twitter fa-lg"></i></a>
                                 <a href="#"><i class="fa fa-linkedin fa-lg"></i></a>
-                                <a href="#"><i class="fa fa-pinterest fa-lg"></i></a>
+                                <a href="#"><i class="fa fa-pinterest fa-lg"></i></a>-->
                                 <a href="#"><i class="fa fa-rss fa-lg"></i></a>
                             </div>
                         </div>    
@@ -332,7 +403,7 @@
                             <div class="de-flex">
                                 <div class="de-flex-col">
                                     <a href="index.html">
-                                       
+                                        Copyright 2024 - Rentaly by Designesia
                                     </a>
                                 </div>
                                 <ul class="menu-simple">
@@ -349,15 +420,15 @@
         
     </div>
 
-
     <!-- Javascript Files
     ================================================== -->
     <script src="js/plugins.js"></script>
     <script src="js/designesia.js"></script>
+    <script src="js/dark-cars.js"></script>
     <script src="js/api.js"></script>
-    <script src="js/auth.js"></script>
-    <script src="js/validation-contact.js"></script>
 
 </body>
 
 </html>
+</html>
+

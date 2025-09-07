@@ -1,5 +1,5 @@
 // API Configuration
-const API_BASE_URL = 'http://localhost:8000';
+const API_BASE_URL = 'http://145.223.81.14:8000';
 
 // Authentication token management
 let authToken = localStorage.getItem('authToken');
@@ -249,26 +249,6 @@ const API = {
             return await response.json();
         }
         throw new Error("Failed to remove car from favorites");
-    },
-
-    async getFavoriteCars() {
-        const response = await fetch(`${API_BASE_URL}/users/me/favorites`, {
-            headers: getAuthHeaders()
-        });
-        
-        if (response.ok) {
-            return await response.json();
-        }
-        throw new Error("Failed to fetch favorite cars");
-    },
-
-    async getCarFavoriteCount(carId) {
-        const response = await fetch(`${API_BASE_URL}/cars/${carId}/favorite_count`);
-        
-        if (response.ok) {
-            return await response.json();
-        }
-        throw new Error("Failed to fetch car favorite count");
     }
 };
 
